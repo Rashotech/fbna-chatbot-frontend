@@ -5,10 +5,13 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  styleUrl: './card.component.css',
 })
 export class CardComponent {
   @Input()
-  cardData!: { image: string; text: string; };
-
+  cardData!: {
+    image: string;
+    text: string;
+    class: string;
+  };
 }
