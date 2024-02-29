@@ -1,16 +1,48 @@
-<header class="flex justify-between items-center flex-wrap container font-semibold text-lg leading-tight text-[#003B65] " >
-    <img class="shrink-0  mt-4 " src="../../../../assets/icons/logo.svg" alt="FirstBank Logo">
-    <nav>
-        <ul class="flex gap-16 ">
-            <li><a [routerLink]="['']">Home</a></li> 
-            <li><a [routerLink]="['']">The Team</a></li>
-            <li><a [routerLink]="['about']">About Project</a></li>
-        </ul>
-    </nav>
-    <div class="flex items-center gap-5 invisible ">
-        <p>Login</p>
-        <button class="border bg-[#003B65] h-[42px] w-[157px] text-white rounded-md hover:bg-blue-900">Open Account</button>     
-    </div>
+<header
+  class="flex justify-between items-center flex-wrap container font-semibold text-lg leading-tight text-[#003B65]"
+>
+  <img
+    class="shrink-0 mt-4"
+    src="../../../../assets/icons/logo.svg"
+    alt="FirstBank Logo"
+  />
+
+  <!-- <button  (click)="toggleMenu()">
+        {{menuOpen ? <img src="../../../../assets/icons/hamburger.svg"/> :'X' }}
+    </button>  -->
+
+  <button (click)="toggleMenu()" class="relative hidden max-sm:block">
+    <ng-container *ngIf="menuOpen; else closeIcon">
+      <img
+        class="hidden max-sm:block max-sm:relative max-sm:top-3"
+        src="../../../../assets/icons/hamburger.svg"
+        alt="Menu"
+      />
+    </ng-container>
+    <ng-template #closeIcon>
+      <p
+        class="hidden max-sm:block max-sm:absolute max-sm:-right-[150px] max-sm:top-[-2px] text-2xl text-gray-600"
+      >
+        X
+      </p>
+    </ng-template>
+  </button>
+
+  <nav class="menu" [class.menuOpen]="menuOpen">
+    <ul
+      class="flex gap-16 max-sm:flex-col max-sm:justify-center max-sm:gap-2 max-sm:translate-y-8 max-sm:text-sm max-sm:text-start max-sm:mx-auto max-sm:relative max-sm:left-[-90%]"
+    >
+      <li><a [routerLink]="['']">Home</a></li>
+      <li><a [routerLink]="['']">The Team</a></li>
+      <li><a [routerLink]="['about']">About Project</a></li>
+    </ul>
+  </nav>
+  <div class="flex items-center gap-5 invisible">
+    <p>Login</p>
+    <button
+      class="border bg-[#003B65] h-[42px] w-[157px] text-white rounded-md hover:bg-blue-900"
+    >
+      Open Account
+    </button>
+  </div>
 </header>
-
-
