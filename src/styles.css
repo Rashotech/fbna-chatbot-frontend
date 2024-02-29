@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
 @import url(https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,7 +18,7 @@
 
 
 body {
-  font-family: "@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);", sans-serif;
+  font-family: Inter, sans-serif;
   background-color: rgb(252, 251, 251);
 }
 
@@ -31,7 +31,7 @@ h1,h2,h3,h4,h5,h6 {
   width: 100%;
   text-align: center;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 6rem;
 }
 
 a {
@@ -42,16 +42,23 @@ li {
   list-style: none;
 }
 
-p, button {
-  font-family: 'Poppins';
-}
 
-@media screen  and (max-width: 600px) {
+
+@media screen  and (max-width: 640px) {
   .container {
     max-width: 1440px;
     width: 100%;
     text-align: center;
     margin: 0 auto;
     padding: 0 2rem;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
