@@ -1,20 +1,28 @@
-<section class="bg-[#ecf3ff] font-medium text-[#003B65] pt-6 max-sm:pt-2 max-sm:pb-5">
+<section
+  class="bg-[#ecf3ff] font-medium text-[#003B65] pt-6 max-sm:pt-2 max-sm:pb-5"
+>
   <div
-    class="container flex items-start justify-between relative max-sm:flex-col"
+    class="container flex items-start justify-between max-sm:flex-col"
   >
     <div class="mt-12">
       <div class="mb-6">
         <p class="text-7xl text-start mb-4 max-sm:text-2xl max-sm:text-center">
           Hi, I’m Crowl,<br />welcome to easy banking
         </p>
-        <img class="hidden max-sm:block max-sm: w-40 h-48 max-sm:mx-auto" src="../../../../../assets/images/chatbot.svg" alt="chatbot">
+        <img
+          class="hidden max-sm:block max-sm: w-40 h-48 max-sm:mx-auto"
+          src="../../../../../assets/images/chatbot.svg"
+          alt="chatbot"
+        />
         <p class="text-2xl text-start max-sm:text-center max-sm:text-xs">
           I'm your friendly financial assistant here to help you navigate
           through all things banking.
         </p>
       </div>
 
-      <div class="grid grid-cols-2 items-center justify-center gap-4 text-lg max-sm:text-[10px] max-sm:gap-5">
+      <div
+        class="grid grid-cols-2 items-center justify-center gap-4 text-lg max-sm:text-[10px] max-sm:gap-5"
+      >
         <div class="flex items-center gap-2">
           <img
             src="../../../../../assets/icons/checked.svg"
@@ -46,13 +54,20 @@
       </div>
     </div>
 
-    <div>
+    <div class="relative z-10 ">
       <img
-        class="shrink-0 w-[800px] object-contain relative z-10  max-sm:hidden"
+        class="shrink-0 w-[800px] object-contain relative z-10 max-sm:hidden"
         src="../../../../../assets/images/crowl.png"
         alt="A Robot Picture"
       />
     </div>
-    <app-chat-bot />
+    <!-- <app-about
+      (closeIcon)="handleClickEvent($event)"
+      [class.hidden]="hideChatDialog"
+    /> -->
+    <!-- <app-chat-bot
+      (getStartedBtn)="handleClickEvent($event)"
+      [class.hidden]="hideGetStarted"
+    /> -->
   </div>
 </section>
