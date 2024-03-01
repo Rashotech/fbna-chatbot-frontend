@@ -1,21 +1,17 @@
-import { Component } from '@angular/core';
-import { AboutComponent } from "../../pages/about/about.component";
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-    selector: 'app-chat-bot',
-    standalone: true,
-    templateUrl: './chat-bot.component.html',
-    styleUrl: './chat-bot.component.css',
-    imports: [AboutComponent]
+  selector: 'app-chat-bot',
+  standalone: true,
+  imports: [],
+  templateUrl: './chat-bot.component.html',
+  styleUrl: './chat-bot.component.css',
 })
 export class ChatBotComponent {
-  isOpen: boolean = false;
+  @Output() getStartedBtn = new EventEmitter<boolean>();
 
-  openModal() {
-    this.isOpen = true;
-  }
-
-  closeModal() {
-    this.isOpen = false;
+  handleClick() {
+    this.getStartedBtn.emit(true);
+    // alert('Hello');
   }
 }
