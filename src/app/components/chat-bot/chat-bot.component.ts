@@ -10,8 +10,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ChatBotComponent {
   @Output() getStartedBtn = new EventEmitter<boolean>();
 
-  handleClick() {
+  popUpChatDialog() {
     this.getStartedBtn.emit(true);
-    // alert('Hello');
+    // alert('Hello from get started botton');
   }
 }

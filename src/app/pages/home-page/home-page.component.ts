@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import { HeroSectionComponent } from './sections/hero-section/hero-section.component';
 import { SectionOneComponent } from './sections/section-one/section-one.component';
 import { SectionTwoComponent } from './sections/section-two/section-two.component';
+import { AboutComponent } from '../about/about.component';
+import { ChatBotComponent } from '../../components/chat-bot/chat-bot.component';
 
 @Component({
   selector: 'app-home-page',
@@ -14,6 +16,17 @@ import { SectionTwoComponent } from './sections/section-two/section-two.componen
     HeroSectionComponent,
     SectionOneComponent,
     SectionTwoComponent,
+    AboutComponent,
+    ChatBotComponent,
   ],
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  hideChatDialog: boolean = true;
+  hideGetStarted: boolean = false;
+
+  handleClickEvent(currentState: boolean) {
+    // alert(currentState);
+    this.hideChatDialog = !currentState;
+    this.hideGetStarted = currentState;
+  }
+}
