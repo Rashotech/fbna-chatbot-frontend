@@ -10,11 +10,9 @@ import { AboutComponent } from '../../../about/about.component';
   imports: [ChatBotComponent, AboutComponent],
 })
 export class HeroSectionComponent {
-  hideChatDialog: boolean = true;
-  hideGetStarted: boolean = false;
-
-  handleClickEvent(currentState: boolean) {
-    this.hideChatDialog = !currentState;
-    this.hideGetStarted = currentState;
-  }
+  // hideGetStarted: boolean = false;
+  // handleClickEvent(currentState: boolean) {
+  //   this.hideGetStarted = currentState;
+  //   // alert(currentState);
+  // }
 }

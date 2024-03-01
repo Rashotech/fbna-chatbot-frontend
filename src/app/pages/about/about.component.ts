@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
 export class AboutComponent {
   @Output() closeIcon = new EventEmitter<boolean>();
 
-  doSomething() {
+  closeChatDialogModal() {
     this.closeIcon.emit(false);
   }
 }
