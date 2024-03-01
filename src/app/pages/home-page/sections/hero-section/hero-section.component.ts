@@ -16,6 +16,5 @@ export class HeroSectionComponent {
   handleClickEvent(currentState: boolean) {
     this.hideChatDialog = !currentState;
     this.hideGetStarted = currentState;
-    // alert(currentState);
   }
 }

@@ -13,6 +13,5 @@ export class AboutComponent {
 
   doSomething() {
     this.closeIcon.emit(false);
-    // alert('Hello');
   }
 }
