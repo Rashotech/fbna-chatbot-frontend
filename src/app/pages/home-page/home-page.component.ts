@@ -5,6 +5,7 @@ import { SectionOneComponent } from './sections/section-one/section-one.componen
 import { SectionTwoComponent } from './sections/section-two/section-two.component';
 import { AboutComponent } from '../about/about.component';
 import { ChatBotComponent } from '../../components/chat-bot/chat-bot.component';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-home-page',
@@ -18,6 +19,7 @@ import { ChatBotComponent } from '../../components/chat-bot/chat-bot.component';
     SectionTwoComponent,
     AboutComponent,
     ChatBotComponent,
+    ModalComponent,
   ],
 })
 export class HomePageComponent {
