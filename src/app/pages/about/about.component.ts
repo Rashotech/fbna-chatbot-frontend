@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,10 +8,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })
-export class AboutComponent {
-  @Output() closeIcon = new EventEmitter<boolean>();
-
-  closeChatDialogModal() {
-    this.closeIcon.emit(false);
-  }
-}
+export class AboutComponent {}
