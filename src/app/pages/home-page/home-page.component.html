@@ -1,4 +1,12 @@
 <section class="relative">
+  <app-about
+    (closeIcon)="handleClickEvent($event)"
+    [class.hidden]="hideChatDialog"
+  />
+  <app-chat-bot
+    (getStartedBtn)="handleClickEvent($event)"
+    [class.hidden]="hideGetStarted"
+  />
   <app-hero-section />
   <app-section-one />
   <app-section-two />
