@@ -1,4 +1,4 @@
-<section class="min-h-[100vh] my-20 py-20 grid bg-blue-300">
+<section class="w-fit absolute top-0 left-[25%] z-10">
   <div class="m-auto">
     <div
       class="bg-[#002970] w-[720px] h-[190px] mx-auto flex justify-between rounded-tl-[50px] rounded-tr-[50px]"
@@ -25,7 +25,11 @@
           <img src="../../../assets/icons/maximize.png" alt="maximize icon" />
         </div>
         <div>
-          <img src="../../../assets/icons/close.png" alt="close icon" />
+          <img
+            (click)="doSomething()"
+            src="../../../assets/icons/close.png"
+            alt="close icon"
+          />
         </div>
       </div>
     </div>
