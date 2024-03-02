@@ -26,9 +26,16 @@ export class HomePageComponent {
   hideChatDialog: boolean = true;
   hideGetStarted: boolean = false;
 
+  enlargeModal: boolean = false;
+
   handleClickEvent(currentState: boolean) {
     // alert(currentState);
     this.hideChatDialog = !currentState;
     this.hideGetStarted = currentState;
+  }
+
+  maximiseChatDialog(event: boolean) {
+    this.enlargeModal = event;
+    this.hideGetStarted = !event;
   }
 }

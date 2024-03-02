@@ -1,5 +1,6 @@
 <section
-  class="w-full h-full absolute bg-neutral-600 bg-opacity-50 pt-5 top-0 left-0 z-20"
+  class="w-fit h-full absolute bg-opacity-50 pt-5 top-0 right-0 z-20"
+  [class.enlarge]="enlargeModal"
 >
   <div class="m-auto">
     <div
@@ -24,7 +25,11 @@
           <img src="../../../assets/icons/minimize.png" alt="minimize icon" />
         </div>
         <div>
-          <img src="../../../assets/icons/maximize.png" alt="maximize icon" />
+          <img
+            (click)="enlargeChatDialogModal()"
+            src="../../../assets/icons/maximize.png"
+            alt="maximize icon"
+          />
         </div>
         <div>
           <img

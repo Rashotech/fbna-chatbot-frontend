@@ -2,6 +2,8 @@
   <app-modal
     (closeIcon)="handleClickEvent($event)"
     [class.hidden]="hideChatDialog"
+    (maximiseIcon)="maximiseChatDialog($event)"
+    [class.enlarge]="enlargeModal"
   />
   <app-chat-bot
     (getStartedBtn)="handleClickEvent($event)"

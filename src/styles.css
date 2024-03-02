@@ -15,14 +15,17 @@
   scroll-behavior: smooth;
 }
 
-
-
 body {
   font-family: Inter, sans-serif;
   background-color: rgb(252, 251, 251);
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "DM Sans", sans-serif;
 }
 
@@ -42,9 +45,13 @@ li {
   list-style: none;
 }
 
+.enlarge {
+  width: 100% !important;
+  background-color: red !important;
+  left: 0 !important;
+}
 
-
-@media screen  and (max-width: 640px) {
+@media screen and (max-width: 640px) {
   .container {
     max-width: 1440px;
     width: 100%;
