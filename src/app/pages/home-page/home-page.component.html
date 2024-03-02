@@ -1,4 +1,4 @@
-<section class="relative">
+<!-- <section class="relative">
   <app-modal
     (closeIcon)="handleClickEvent($event)"
     [class.hidden]="hideChatDialog"
@@ -12,4 +12,22 @@
   <app-hero-section />
   <app-section-one />
   <app-section-two />
+</section> -->
+
+<section class="relative">
+  <app-modal
+    (closeIcon)="handleClickEvent($event)"
+    [hidden]="hideChatDialog"
+    (maximiseIcon)="maximiseChatDialog($event)"
+    [class.enlarge]="enlargeModal"
+  ></app-modal>
+
+  <app-chat-bot
+    (getStartedBtn)="handleClickEvent($event)"
+    [hidden]="hideGetStarted"
+  ></app-chat-bot>
+
+  <app-hero-section></app-hero-section>
+  <app-section-one></app-section-one>
+  <app-section-two></app-section-two>
 </section>
