@@ -10,16 +10,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ModalComponent {
   @Output() closeIcon = new EventEmitter<boolean>();
 
-  @Output() maximiseIcon = new EventEmitter<boolean>();
-
-  enlargeModal: boolean = false;
+  isEnlargedModal: boolean = false;
 
   closeChatDialogModal() {
     this.closeIcon.emit(false);
-    this.enlargeModal = false;
+    this.isEnlargedModal = false;
   }
 
   enlargeChatDialogModal() {
-    this.enlargeModal = true;
+    this.isEnlargedModal = true;
   }
 }
