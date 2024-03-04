@@ -17,7 +17,7 @@
 // }
 
 
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-chat-bot',
@@ -26,10 +26,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./chat-bot.component.css'],
 })
 export class ChatBotComponent {
-  @Output() getStartedBtn = new EventEmitter<boolean>();
+  @Output() chatbotButtonClick = new EventEmitter<string>();
+  @Input() buttonText: string = 'Get Started';
 
-  popUpChatDialog() {
-    this.getStartedBtn.emit(true);
-    // alert('Hello from get started button');
+  constructor() { }
+
+  buttonClicked() {
+    if (this.buttonText === 'Get Started') {
+      this.buttonText = 'Continue';
+    }
+    this.chatbotButtonClick.emit(this.buttonText);
   }
 }

@@ -6,6 +6,7 @@ import { SectionTwoComponent } from './sections/section-two/section-two.componen
 import { AboutComponent } from '../about/about.component';
 import { ChatBotComponent } from '../../components/chat-bot/chat-bot.component';
 import { ModalComponent } from '../../components/modal/modal.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home-page',
@@ -14,6 +15,7 @@ import { ModalComponent } from '../../components/modal/modal.component';
   styleUrl: './home-page.component.css',
   imports: [
     RouterLink,
+    CommonModule,
     HeroSectionComponent,
     SectionOneComponent,
     SectionTwoComponent,
@@ -23,19 +25,36 @@ import { ModalComponent } from '../../components/modal/modal.component';
   ],
 })
 export class HomePageComponent {
-  hideChatDialog: boolean = true;
-  hideGetStarted: boolean = false;
+  
+  showModalFlag: boolean = false;
+  showChatbot: boolean = true;
+  chatbotButtonText: string = 'Get Started';
 
-  enlargeModal: boolean = false;
+  constructor() { }
 
-  handleClickEvent(currentState: boolean) {
-    // alert(currentState);
-    this.hideChatDialog = !currentState;
-    this.hideGetStarted = currentState;
+  showModal() {
+    this.showModalFlag = true;
+    this.showChatbot = false;
   }
 
-  maximiseChatDialog(event: boolean) {
-    this.enlargeModal = event;
-    this.hideGetStarted = !event;
+  closeModal() {
+    this.showModalFlag = false;
+    this.showChatbot = true;
+  }
+
+  buttonClicked(buttonText: string) {
+    this.chatbotButtonText = buttonText;
+    if (buttonText === 'Continue') {
+      this.showModal();
+    }
+  }
+
+  // resetChatbotText() {
+  //   this.chatbotButtonText = 'Get Started';
+  // }
+
+  minimizeChatbotText() {
+    this.showChatbot = true;
+    this.chatbotButtonText = 'Continue'; 
   }
 }

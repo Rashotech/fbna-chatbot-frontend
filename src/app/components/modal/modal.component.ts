@@ -33,17 +33,33 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent {
-  @Output() closeIcon = new EventEmitter<boolean>();
-  @Output() maximiseIcon = new EventEmitter<boolean>();
+  @Output() modalClosed = new EventEmitter<void>();
+  @Output() resetChatbot = new EventEmitter<void>();
+  @Output() minimizeChatbot = new EventEmitter<void>();
 
-  enlargeModal: boolean = false;
+  chatData: string = '';
 
-  closeChatDialogModal() {
-    this.closeIcon.emit(false);
-    this.enlargeModal = false;
+  constructor() { }
+
+  minimize() {
+    console.log("Modal minimized");
+    this.minimizeChatbot.emit()
+    this.modalClosed.emit();
   }
 
-  enlargeChatDialogModal() {
-    this.enlargeModal = !this.enlargeModal;
+  maximize() {
+    console.log("Modal maximized");
   }
-}
+
+  cancel() {
+    console.log("Modal canceled");
+    this.modalClosed.emit();
+    this.resetChatbot.emit();
+    this.chatData = "";
+  }
+
+//   private resetModalContent() {
+//     this.chatData = '';
+    
+//   }
+ }
