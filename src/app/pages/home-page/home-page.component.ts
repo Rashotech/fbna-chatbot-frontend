@@ -26,9 +26,17 @@ export class HomePageComponent {
   hideChatDialog: boolean = true;
   hideGetStarted: boolean = false;
 
+  getStartedBtnState: boolean = false;
+
   handleClickEvent(currentState: boolean) {
     // alert(currentState);
     this.hideChatDialog = !currentState;
     this.hideGetStarted = currentState;
+    this.getStartedBtnState = false;
+  }
+
+  handleMinimiseEvent(state: boolean) {
+    this.getStartedBtnState = state;
+    alert(this.getStartedBtnState);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './modal.component.css',
 })
 export class ModalComponent {
+  @Output() minimiseIcon = new EventEmitter<boolean>();
   @Output() closeIcon = new EventEmitter<boolean>();
 
   isEnlargedModal: boolean = false;
@@ -19,5 +20,10 @@ export class ModalComponent {
 
   enlargeChatDialogModal() {
     this.isEnlargedModal = true;
+  }
+
+  minimiseChatDialogModal() {
+    this.closeChatDialogModal();
+    this.minimiseIcon.emit(true);
   }
 }
