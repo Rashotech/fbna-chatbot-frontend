@@ -26,7 +26,11 @@
         [class.chat-modal__icons--enlarge]="isEnlargedModal"
       >
         <div (click)="minimiseChatDialogModal()" class="mt-3 w-5">
-          <img src="../../../assets/icons/minimize.png" alt="minimize icon" />
+          <img
+            (click)="minimiseChatDialogModal()"
+            src="../../../assets/icons/minimize.png"
+            alt="minimize icon"
+          />
         </div>
 
         <div (click)="enlargeChatDialogModal()">
@@ -40,7 +44,8 @@
     </div>
 
     <div
-      class="bg-[#F6F6F7] mt-[-50px] w-[485px] h-[520px] m-auto rounded-[50px] px-14 py-10 overflow-y-auto"
+      id="webchat"
+      class="bg-[#F6F6F7] mt-[-50px] w-[485px] h-[600px] m-auto rounded-[50px] px-14 py-10 overflow-y-auto"
       [class.chat-modal__body--enlarge]="isEnlargedModal"
     ></div>
   </div>

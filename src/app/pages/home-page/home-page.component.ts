@@ -37,6 +37,6 @@ export class HomePageComponent {
 
   handleMinimiseEvent(state: boolean) {
     this.getStartedBtnState = state;
-    alert(this.getStartedBtnState);
+    // alert(this.getStartedBtnState);
   }
 }
