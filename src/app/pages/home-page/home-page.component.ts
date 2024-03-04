@@ -49,9 +49,9 @@ export class HomePageComponent {
     }
   }
 
-  // resetChatbotText() {
-  //   this.chatbotButtonText = 'Get Started';
-  // }
+  resetChatbotText() {
+    this.chatbotButtonText = 'Get Started';
+  }
 
   minimizeChatbotText() {
     this.showChatbot = true;
