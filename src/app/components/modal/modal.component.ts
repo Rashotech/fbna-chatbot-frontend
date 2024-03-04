@@ -58,8 +58,8 @@ export class ModalComponent {
     this.chatData = "";
   }
 
-//   private resetModalContent() {
-//     this.chatData = '';
+  private resetModalContent() {
+    this.chatData = '';
     
-//   }
+  }
  }
