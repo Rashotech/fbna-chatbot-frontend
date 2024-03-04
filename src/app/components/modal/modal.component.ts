@@ -37,6 +37,8 @@ export class ModalComponent {
   @Output() resetChatbot = new EventEmitter<void>();
   @Output() minimizeChatbot = new EventEmitter<void>();
 
+  isModalMaximize: boolean = false;
+
   chatData: string = '';
 
   constructor() { }
@@ -49,7 +51,12 @@ export class ModalComponent {
 
   maximize() {
     console.log("Modal maximized");
+  this.isModalMaximize = !this.isModalMaximize
   }
+
+  // enlargeChatDialogModal() {
+  //   this.isEnlargedModal = true;
+  // }
 
   cancel() {
     console.log("Modal canceled");
