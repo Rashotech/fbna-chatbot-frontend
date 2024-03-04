@@ -44,6 +44,6 @@ export class ModalComponent {
   }
 
   enlargeChatDialogModal() {
-    this.enlargeModal = true;
+    this.enlargeModal = !this.enlargeModal;
   }
 }
