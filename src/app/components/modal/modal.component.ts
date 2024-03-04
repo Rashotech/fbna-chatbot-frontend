@@ -12,11 +12,6 @@ export class ModalComponent {
 
   isEnlargedModal: boolean = false;
 
-  closeChatDialogModal() {
-    this.closeIcon.emit(false);
-    this.isEnlargedModal = false;
-  }
-
   enlargeChatDialogModal() {
     this.isEnlargedModal = true;
   }
