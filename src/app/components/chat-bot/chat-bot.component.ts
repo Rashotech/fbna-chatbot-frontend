@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-chat-bot',
@@ -9,6 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ChatBotComponent {
   @Output() getStartedBtn = new EventEmitter<boolean>();
+  @Input() btnState: boolean = false;
 
   popUpChatDialog() {
     this.getStartedBtn.emit(true);
