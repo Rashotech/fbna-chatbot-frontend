@@ -1,0 +1,20 @@
+.minimized {
+    display: none;
+  }
+
+  .maximized,
+  .wrapper_maximized {
+    width: 600px;
+    
+    
+  }
+
+  
+
+  .maximize {
+    right: 25% !important;
+  }
+
+  .center {
+    right: 25%;
+  }

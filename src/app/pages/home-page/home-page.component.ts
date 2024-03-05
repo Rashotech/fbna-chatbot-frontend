@@ -26,35 +26,21 @@ import { CommonModule } from '@angular/common';
 })
 export class HomePageComponent {
   
-  showModalFlag: boolean = false;
-  showChatbot: boolean = true;
-  chatbotButtonText: string = 'Get Started';
+  isModalVisible: boolean = false;
+  chatButtonText: string = 'Get Started';
+  isChatButtonVisible: boolean = true;
 
   constructor() { }
 
-  showModal() {
-    this.showModalFlag = true;
-    this.showChatbot = false;
+  toggleModalVisibility(): void {
+    this.isModalVisible = !this.isModalVisible;
+    this.isChatButtonVisible = !this.isModalVisible;
+    this.chatButtonText = this.isModalVisible ? 'Get Started' : 'Continue';
   }
 
-  closeModal() {
-    this.showModalFlag = false;
-    this.showChatbot = true;
-  }
-
-  buttonClicked(buttonText: string) {
-    this.chatbotButtonText = buttonText;
-    if (buttonText === 'Continue') {
-      this.showModal();
-    }
-  }
-
-  resetChatbotText() {
-    this.chatbotButtonText = 'Get Started';
-  }
-
-  minimizeChatbotText() {
-    this.showChatbot = true;
-    this.chatbotButtonText = 'Continue'; 
+  clearModal(): void {
+    this.isModalVisible = false;
+    this.isChatButtonVisible = true;
+    this.chatButtonText = 'Get Started';
   }
 }

@@ -33,40 +33,32 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent {
-  @Output() modalClosed = new EventEmitter<void>();
-  @Output() resetChatbot = new EventEmitter<void>();
-  @Output() minimizeChatbot = new EventEmitter<void>();
-
-  isModalMaximize: boolean = false;
-
-  chatData: string = '';
-
-  constructor() { }
-
-  minimize() {
-    console.log("Modal minimized");
-    this.minimizeChatbot.emit()
-    this.modalClosed.emit();
+  isModalMinimized: boolean = false;
+  isMaximized: boolean = false;
+  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
+  @Output() minimizeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() clearModal: EventEmitter<void> = new EventEmitter<void>();
+  onCancel(): void {
+    console.log('cancel');
+    this.closeModal.emit();
+    this.clearModal.emit();
   }
 
-  maximize() {
-    console.log("Modal maximized");
-  this.isModalMaximize = !this.isModalMaximize
+  onRefresh(): void {
+    // Logic to reload the content inside the modal
+    console.log('Refreshing content inside modal...');
+    // Example: You can put the logic here to reload the data from the external source
+    // Example: You can also update the content directly here
   }
 
-  // enlargeChatDialogModal() {
-  //   this.isEnlargedModal = true;
-  // }
-
-  cancel() {
-    console.log("Modal canceled");
-    this.modalClosed.emit();
-    this.resetChatbot.emit();
-    this.chatData = "";
-  }
-
-  private resetModalContent() {
-    this.chatData = '';
+  onMinimize(): void {
+    console.log('minimized');
     
+    this.isModalMinimized = true;
+    this.minimizeModal.emit(true);
+  }
+
+  onMaximize(): void {
+    this.isMaximized = !this.isMaximized;
   }
  }

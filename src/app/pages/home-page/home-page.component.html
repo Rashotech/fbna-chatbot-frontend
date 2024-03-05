@@ -16,14 +16,15 @@
 
 <section class="relative">
   <app-chat-bot
-    *ngIf="showChatbot"
-    [buttonText]="chatbotButtonText"
-    (chatbotButtonClick)="buttonClicked($event)"
+  *ngIf="isChatButtonVisible"
+  [buttonText]="chatButtonText"
+  (showModal)="toggleModalVisibility()" 
   ></app-chat-bot>
   <app-modal
-    *ngIf="showModalFlag"
-    (modalClosed)="closeModal()"
-    (resetChatbot)="resetChatbotText()"
+  *ngIf="isModalVisible" 
+  (closeModal)="toggleModalVisibility()"
+  (minimizeModal)="toggleModalVisibility()"
+  (clearModal)="clearModal()"
   ></app-modal>
   <app-hero-section></app-hero-section>
   <app-section-one></app-section-one>

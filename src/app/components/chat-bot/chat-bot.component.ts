@@ -26,15 +26,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./chat-bot.component.css'],
 })
 export class ChatBotComponent {
-  @Output() chatbotButtonClick = new EventEmitter<string>();
   @Input() buttonText: string = 'Get Started';
+  @Output() showModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
-  buttonClicked() {
-    if (this.buttonText === 'Get Started') {
-      this.buttonText = 'Continue';
-    }
-    this.chatbotButtonClick.emit(this.buttonText);
+  onClick(): void {
+    this.showModal.emit(true);
   }
 }
