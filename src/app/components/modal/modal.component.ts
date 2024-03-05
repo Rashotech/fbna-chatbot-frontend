@@ -24,6 +24,11 @@ export class ModalComponent implements OnInit {
   closeChatDialogModal() {
     this.closeIcon.emit(false);
     this.isEnlargedModal = false;
+
+    const webchatDiv = document.getElementById('webchat');
+    if (webchatDiv) {
+      webchatDiv.innerHTML = '';
+    }
   }
 
   enlargeChatDialogModal() {
@@ -31,7 +36,8 @@ export class ModalComponent implements OnInit {
   }
 
   minimiseChatDialogModal() {
-    this.closeChatDialogModal();
+    this.closeIcon.emit(false);
+    this.isEnlargedModal = false;
     this.minimiseIcon.emit(true);
   }
 
