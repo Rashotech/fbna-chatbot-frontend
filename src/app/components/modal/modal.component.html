@@ -1,11 +1,11 @@
 <section
   class="w-fit h-full absolute top-3 right-10 z-20"
-  [class.maximize]="isMaximized"
+ 
 >
-  <div class="fixed right-4"  [class.minimized]="isModalMinimized"  [class.center]="isMaximized"  >
+  <div class="fixed right-4"   >
     <div
       class="bg-[#002970] w-[485px] h-[170px] mx-auto flex justify-between rounded-tl-[50px] rounded-tr-[50px]"
-      [class.maximized]="isMaximized" 
+     
     >
       <div class="flex mt-5 ml-2">
         <div class="w-24">
@@ -27,34 +27,38 @@
       >
         <div class="mt-3 w-5">
           <img 
-          (click)="onMinimize()"
+          (click)="minimizeModal()"
           src="../../../assets/icons/minimize.png" alt="minimize icon" />
         </div>
         <div>
           <img
-          (click)="onMaximize()"
+          (click)="toggleResize()"
             src="../../../assets/icons/maximize.png"
             alt="maximize icon"
           />
         </div>
         <div>
           <img 
-          (click)="onCancel()"
+          (click)="closeModal()"
           src="../../../assets/icons/close.png" 
           alt="close icon" />
         </div>
 
         <div>
-          <button (click)="onRefresh()">Refresh</button>
+          <button 
+          (click)="refreshModalData()"
+          >Refresh</button>
         </div>
       </div>
     </div>
 
-    <div
+    <div 
       class="bg-[#F6F6F7] mt-[-50px] w-[485px] h-[65dvh] m-auto rounded-[50px] px-14 py-10 overflow-y-auto"
-      [class.wrapper_maximized]="isMaximized"
-
       
-    ></div>
+    >
+  <div id="webchat">
+
+  </div>
+  </div>
   </div>
 </section>

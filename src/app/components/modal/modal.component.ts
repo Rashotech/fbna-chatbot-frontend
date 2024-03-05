@@ -1,30 +1,18 @@
-// import { Component, EventEmitter, Output } from '@angular/core';
 
-// @Component({
-//   selector: 'app-modal',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './modal.component.html',
-//   styleUrl: './modal.component.css',
-// })
-// export class ModalComponent {
-//   @Output() closeIcon = new EventEmitter<boolean>();
+import { Component, OnInit } from '@angular/core';
+import { ChatModalService } from '../../chat-modal.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app.reducer';
+import * as AppActions from '../../app.actions';
 
-//   @Output() maximiseIcon = new EventEmitter<boolean>();
 
-//   enlargeModal: boolean = false;
+declare global {
+  interface Window {
+    WebChat: any;
+  }
+}
 
-//   closeChatDialogModal() {
-//     this.closeIcon.emit(false);
-//     this.enlargeModal = false;
-//   }
-
-//   enlargeChatDialogModal() {
-//     this.enlargeModal = true;
-//   }
-// }
-
-import { Component, EventEmitter, Output } from '@angular/core';
+window.WebChat = window.WebChat || {};
 
 @Component({
   selector: 'app-modal',
@@ -32,33 +20,42 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css'],
 })
-export class ModalComponent {
+export class ModalComponent implements OnInit  {
+  isModalVisible: boolean = false;
   isModalMinimized: boolean = false;
-  isMaximized: boolean = false;
-  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
-  @Output() minimizeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() clearModal: EventEmitter<void> = new EventEmitter<void>();
-  onCancel(): void {
-    console.log('cancel');
-    this.closeModal.emit();
-    this.clearModal.emit();
+  isModalResized: boolean = false;
+
+  constructor(private chatModalService: ChatModalService, private store: Store<AppState>) { }
+
+  ngOnInit() {
+    this.chatModalService.showModal$.subscribe(() => {
+      if (!this.isModalMinimized) {
+        this.isModalVisible = true;
+      }
+    });
   }
 
-  onRefresh(): void {
-    // Logic to reload the content inside the modal
-    console.log('Refreshing content inside modal...');
-    // Example: You can put the logic here to reload the data from the external source
-    // Example: You can also update the content directly here
+  closeModal() {
+    this.isModalVisible = false;
+    this.store.dispatch(AppActions.closeChatModal());
   }
 
-  onMinimize(): void {
-    console.log('minimized');
-    
+  minimizeModal() {
     this.isModalMinimized = true;
-    this.minimizeModal.emit(true);
+    this.store.dispatch(AppActions.minimizeChatModal());
   }
 
-  onMaximize(): void {
-    this.isMaximized = !this.isMaximized;
+  restoreModal() {
+    this.isModalMinimized = false;
+    this.isModalVisible = true;
   }
- }
+
+  refreshModalData() {
+    // Perform data refresh here
+  }
+
+  toggleResize() {
+    this.isModalResized = !this.isModalResized;
+    this.store.dispatch(AppActions.toggleModalResize());
+  }
+}

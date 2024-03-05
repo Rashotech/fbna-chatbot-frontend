@@ -1,31 +1,6 @@
-<!-- <section class="relative">
-  <app-modal
-    (closeIcon)="handleClickEvent($event)"
-    [class.hidden]="hideChatDialog"
-    (maximiseIcon)="maximiseChatDialog($event)"
-    [class.enlarge]="enlargeModal"
-  />
-  <app-chat-bot
-    (getStartedBtn)="handleClickEvent($event)"
-    [class.hidden]="hideGetStarted"
-  />
-  <app-hero-section />
-  <app-section-one />
-  <app-section-two />
-</section> -->
-
 <section class="relative">
-  <app-chat-bot
-  *ngIf="isChatButtonVisible"
-  [buttonText]="chatButtonText"
-  (showModal)="toggleModalVisibility()" 
-  ></app-chat-bot>
-  <app-modal
-  *ngIf="isModalVisible" 
-  (closeModal)="toggleModalVisibility()"
-  (minimizeModal)="toggleModalVisibility()"
-  (clearModal)="clearModal()"
-  ></app-modal>
+  <app-chat-bot></app-chat-bot>
+  <app-modal></app-modal>
   <app-hero-section></app-hero-section>
   <app-section-one></app-section-one>
   <app-section-two></app-section-two>

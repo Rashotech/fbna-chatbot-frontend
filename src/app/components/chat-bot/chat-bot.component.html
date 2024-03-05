@@ -1,36 +1,3 @@
-<!-- <section>
-  <div
-    class="bg-white h-[190px] max-w-[400px] rounded-2xl flex justify-around items-start pt-3 fixed z-20 bottom-[16%] right-4 max-sm:max-h-[124px] max-sm:pt-0 max-sm:pb-6 max-sm:top-[41%]"
-  >
-    <img
-      class="w-28 max-sm:hidden"
-      src="../../../assets/images/chatbot.svg"
-      alt="chatbot"
-    />
-
-    <div
-      class="text-[#003B65] w-[247.1px] text-start mt-5 -translate-x-3 max-sm:text-center max-sm:mx-auto max-sm:translate-x-0"
-    >
-      <p class="font-bold text-lg max-sm:text-sm max-sm:-mt-2">
-        Hey there!🖐I'm Crowl
-      </p>
-      <p class="font-medium text-sm max-sm:text-xs">
-        Need help with your account?<br />
-        Type your question or choose from<br />
-        the options below to get started.
-      </p>
-      <div
-        class="flex items-center justify-end mt-3 max-sm:mt-1 max-sm:justify-center"
-      >
-        <button
-          class="font-[DM-Sans] font-medium bg-blue-950 text-white w-[128px] h-11 rounded-md hover:bg-blue-900 max-sm:text-xs max-sm:h-8"
-        >
-          Get Started
-        </button>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <section>
   <div class="bg-white h-[190px] max-w-[400px] rounded-2xl flex justify-around items-start pt-3 fixed z-20 bottom-[16%] right-4 max-sm:max-h-[124px] max-sm:pt-0 max-sm:pb-6 max-sm:top-[41%]">
@@ -40,8 +7,8 @@
       <p class="font-bold text-lg max-sm:text-sm max-sm:-mt-2">Hey there!🖐I'm Crowl</p>
       <p class="font-medium text-sm max-sm:text-xs">Need help with your account?<br />Type your question or choose from<br />the options below to get started.</p>
       <div class="flex items-center justify-end mt-3 max-sm:mt-1 max-sm:justify-center">
-        <button  (click)="onClick()" class="font-[DM-Sans] font-medium bg-blue-950 text-white w-[128px] h-11 rounded-md hover:bg-blue-900 max-sm:text-xs max-sm:h-8">
-          {{ buttonText }}
+        <button  class="font-[DM-Sans] font-medium bg-blue-950 text-white w-[128px] h-11 rounded-md hover:bg-blue-900 max-sm:text-xs max-sm:h-8">
+          (click)="openModal()">{{ dynamicButtonText$ | async }}
         </button>
       </div>
     </div>
