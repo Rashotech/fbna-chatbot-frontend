@@ -26,7 +26,9 @@
           (click)="popUpChatDialog()"
           class="font-[DM-Sans] font-medium bg-blue-950 text-white w-[128px] h-11 rounded-md hover:bg-blue-900 max-sm:text-xs max-sm:h-8"
         >
-          {{ btnState ? "Continue" : "Get Started" }}
+          <div *ngIf="status$ | async as state">
+            {{ state.status }}
+          </div>
         </button>
       </div>
     </div>

@@ -1,4 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { minimize, reset } from '../../states/chatbot/chatbot.action';
+import { IChatBotState } from '../../states/chatbot/chatbot.reducer';
 
 declare global {
   interface Window {
@@ -18,8 +22,20 @@ window.WebChat = window.WebChat || {};
 export class ModalComponent implements OnInit {
   @Output() minimiseIcon = new EventEmitter<boolean>();
   @Output() closeIcon = new EventEmitter<boolean>();
+  private isWebChatInitialized = false;
 
-  isEnlargedModal: boolean = false;
+  isEnlargedModal: boolean = false; 
+
+  private store = inject(Store);
+  status$: Observable<IChatBotState>;
+
+  constructor() {
+    this.status$ = this.store.select('chatbot');
+  }
+
+  resetState() {
+    this.store.dispatch(reset());
+  }
 
   closeChatDialogModal() {
     this.closeIcon.emit(false);
@@ -27,7 +43,19 @@ export class ModalComponent implements OnInit {
 
     const webchatDiv = document.getElementById('webchat');
     if (webchatDiv) {
-      webchatDiv.innerHTML = '';
+      while (webchatDiv.firstChild) {
+        webchatDiv.removeChild(webchatDiv.firstChild);
+      }
+    }
+    
+    this.isWebChatInitialized = false;
+    this.resetState();
+  }
+
+  openChatDialogModal() { 
+    if (!this.isWebChatInitialized) {
+      this.initializeWebChat();
+      this.isWebChatInitialized = true;
     }
   }
 
@@ -36,12 +64,15 @@ export class ModalComponent implements OnInit {
   }
 
   minimiseChatDialogModal() {
-    this.closeIcon.emit(false);
     this.isEnlargedModal = false;
-    this.minimiseIcon.emit(true);
+    this.store.dispatch(minimize());
   }
 
   ngOnInit(): void {
+    this.openChatDialogModal();
+  }
+
+  initializeWebChat() {
     const script = document.createElement('script');
     script.src =
       'https://cdn.botframework.com/botframework-webchat/latest/webchat.js';
