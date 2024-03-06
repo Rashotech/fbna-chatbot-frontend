@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { updateStatus } from '../../states/chatbot/chatbot.action';
+import { maximize, updateStatus } from '../../states/chatbot/chatbot.action';
 import { IChatBotState } from '../../states/chatbot/chatbot.reducer';
 
 @Component({
@@ -19,7 +19,7 @@ import { IChatBotState } from '../../states/chatbot/chatbot.reducer';
   templateUrl: './chat-bot.component.html',
   styleUrl: './chat-bot.component.css',
 })
-export class ChatBotComponent implements OnInit {
+export class ChatBotComponent { 
   @Output() getStartedBtn = new EventEmitter<boolean>();
   @Input() btnState: boolean = false;
   private store = inject(Store);
@@ -29,13 +29,6 @@ export class ChatBotComponent implements OnInit {
     this.status$ = this.store.select('chatbot');
   }
 
-  ngOnInit() {
-    this.status$.subscribe((state) => {
-      console.log('Current Status:', state.status); // Assuming 'status' is the property
-      // You can utilize the status value for other logic here
-    });
-  }
-
   changeStatus() {
     this.store.dispatch(updateStatus({ status: 'Continue' }));
   }
@@ -43,6 +36,6 @@ export class ChatBotComponent implements OnInit {
   popUpChatDialog() {
     this.getStartedBtn.emit(true);
     this.changeStatus();
-    // alert('Hello from get started botton');
+    this.store.dispatch(maximize());
   }
 }
