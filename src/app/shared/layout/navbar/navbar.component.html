@@ -1,5 +1,7 @@
 <header class="flex justify-between items-center flex-wrap container font-semibold text-lg leading-tight text-[#003B65] " >
-    <img class="shrink-0  mt-4  max-sm:w-20 max-sm:h-6" src="../../../../assets/icons/logo.svg" alt="FirstBank Logo">
+    <a routerLink=""> 
+        <img class="shrink-0  mt-4  max-sm:w-20 max-sm:h-6" src="../../../../assets/icons/logo.svg" alt="FirstBank Logo">
+    </a>
        
     <button (click)="toggleMenu()" class="relative hidden max-sm:block">
         <ng-container *ngIf="menuOpen; else closeIcon">
@@ -11,10 +13,10 @@
     </button>
 
     <nav class="menu"  [class.menuOpen] ="menuOpen" >
-        <ul class="flex gap-16 max-sm:flex-col max-sm:justify-center max-sm:gap-2 max-sm:translate-y-8 max-sm:text-sm max-sm:text-start max-sm:mx-auto max-sm:relative max-sm:left-[-90%]" >
-            <li><a [routerLink]="['']">Home</a></li> 
-            <li><a [routerLink]="['']">The Team</a></li>
-            <li><a [routerLink]="['about']">About Project</a></li>
+        <ul class="flex gap-16 max-sm:flex-col max-sm:justify-center max-sm:gap-2 max-sm:translate-y-8 max-sm:text-sm max-sm:text-start max-sm:mx-auto max-sm:relative  max-sm:left-[-90%]" >
+            <li><a routerLink="">Home</a></li> 
+            <li><a routerLink="">The Team</a></li>
+            <li><a routerLink="about">About Project</a></li>
         </ul>
     </nav>
     

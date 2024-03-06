@@ -15,11 +15,11 @@ const initialState: IChatBotState = {
 
 export const chatbotReducer = createReducer(
   initialState,
-  on(minimize, state=> ({...state, minimize: true, status: "Continue" })),
-  on(close, state=> ({...state, hidden: true, minimize: true, status: 'Get Started' })),
-  on(maximize, state => ({ ...state, minimize: false, hidden: false })),
-  on(reset, state => ({ ...state, minimize: true, hidden: true, status: 'Get Started'})),
-  on(updateStatus, (state, { status }) => ({
+  on(minimize, (state)=> ({...state, minimize: true, status: "Continue" })),
+  on(close, (state)=> ({...state, hidden: true, minimize: true, status: 'Get Started' })),
+  on(maximize, (state) => ({ ...state, minimize: false, hidden: false })),
+  on(reset, (state) => ({ ...state, minimize: true, hidden: true, status: 'Get Started'})),
+  on(updateStatus, (state , { status }) => ({
     ...state,
     status: status
   }))
