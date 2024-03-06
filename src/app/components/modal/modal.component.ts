@@ -83,8 +83,7 @@ export class ModalComponent implements OnInit {
       botAvatarImage:
         'https://firebasestorage.googleapis.com/v0/b/fbna-games.appspot.com/o/chatbot%2Fchatbot_dp.png?alt=media&token=b930abea-13de-42c2-950e-036864c60a99',
       botAvatarInitials: 'CR',
-      userAvatarImage: 'https://github.com/compulim.png?size=64',
-      userAvatarInitials: 'WC',
+      userAvatarInitials: 'YOU',
     };
     script.onload = () => {
       window.WebChat.renderWebChat(
