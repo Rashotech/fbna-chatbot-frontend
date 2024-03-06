@@ -51,18 +51,17 @@ li {
   right: 0;
   top: 0;
   background-color: rgba(0, 41, 112, 0.5);
-  /* margin: -22px 0; */
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .chat-modal__head--enlarge {
   width: 720px;
-  height: 190px;
+ 
 }
 
 .chat-modal__body--enlarge {
   width: 720px;
-  height: 600px;
+ 
 }
 
 .chat-modal__icons--enlarge {
@@ -86,4 +85,6 @@ li {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  
 }
